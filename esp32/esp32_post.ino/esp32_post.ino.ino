@@ -14,12 +14,12 @@ DHT dht(DHTPIN, DHTTYPE);
 #define SOIL_ANALOG 34   // AOUT → GPIO34 (ADC)
 #define SOIL_DIGITAL 17  // DOUT → GPIO16 (any free digital pin)
 
-const char* ssid = "Airtel_Azim_5G";
-const char* password = "azim2006";
+const char* ssid = "Your SSID";
+const char* password = "Your Password";
 
 // Flask server IP and port (change to your PC's IP)
-const char* serverUrl = "http://192.168.1.6:5000/sensor";
-const char* apiKey = "esp32-secret-key";  // must match SENSOR_API_KEY in Flask
+const char* serverUrl = "your-server-ip:5000/sensor-data";
+const char* apiKey = "your api key";  // must match SENSOR_API_KEY in Flask
 void setup() {
   Serial.begin(115200);
   dht.begin();

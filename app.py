@@ -18,18 +18,18 @@ from twilio.rest import Client
 # Config
 # -----------------------
 app = Flask(__name__)
-EMAIL_SENDER = "azimmdn12@gmail.com"
-EMAIL_PASSWORD = "Notmeazim9191#"   # Gmail App Password
-EMAIL_RECEIVER = "azim365mohideen@gmail.com"
+EMAIL_SENDER = "your email"
+EMAIL_PASSWORD = "your password"   # Gmail App Password
+EMAIL_RECEIVER = "your email"
 
-TWILIO_SID = "AC80d97f23d0c68718c94a51e5ad2e7302"
-TWILIO_TOKEN = "a00391981c7a2e3d82e3842f2357e986"
-TWILIO_FROM = "+14722139551"
-TWILIO_TO = "+918015123959"
+TWILIO_SID = "your sid"
+TWILIO_TOKEN = "your token"
+TWILIO_FROM = "twilio phone number"
+TWILIO_TO = "your phone number"
 
 APP_SECRET = "replace_with_strong_secret"
 ADMIN_PASSWORD = "ccp2"
-SENSOR_API_KEY = "esp32-secret-key"
+SENSOR_API_KEY = "your api key"  # must match esp32 apiKey
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 DB_DIR = os.path.join(BASE_DIR, "instance")
 os.makedirs("instance", exist_ok=True)
