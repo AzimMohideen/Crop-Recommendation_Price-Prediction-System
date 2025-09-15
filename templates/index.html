@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Smart Farming — Dashboard</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <!-- Real-time Alert Banner -->
+  <div id="alertBanner" class="alert-banner" style="display:none;">
+    🚨 Warning: Soil moisture critically low! Immediate irrigation required.
+  </div>
+
+  <nav class="navbar">
+    <div class="brand">🌱 Smart Farming</div>
+    <ul class="navlinks">
+      <li><a href="#" data-target="home" class="nav-link active">Dashboard</a></li>
+      <li><a href="#" data-target="crops" class="nav-link">Crops</a></li>
+      <li><a href="{{ url_for('price') }}">Price Prediction</a></li>
+      <li><a href="#" data-target="about" class="nav-link">About</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <section id="home" class="page active">
+      <div class="grid">
+        <div class="card">
+          <div class="card-title">🌡 Temperature</div>
+          <div class="card-value" id="temp">-- °C</div>
+          <div class="progress-bar"><div id="tempBar" class="progress progress-temp" style="width:0%"></div></div>
+        </div>
+        <div class="card">
+          <div class="card-title">💧 Humidity</div>
+          <div class="card-value" id="humidity">-- %</div>
+          <div class="progress-bar"><div id="humBar" class="progress progress-hum" style="width:0%"></div></div>
+        </div>
+        <div class="card">
+          <div class="card-title">🔥 Heat Index</div>
+          <div class="card-value" id="heatIndex">-- °C</div>
+          <div class="progress-bar"><div id="heatBar" class="progress progress-heat" style="width:0%"></div></div>
+        </div>
+        <div class="card">
+          <div class="card-title">🌿 Soil Moisture</div>
+          <div class="card-value" id="soil">-- %</div>
+          <div class="progress-bar"><div id="soilBar" class="progress progress-soil" style="width:0%"></div></div>
+          <div id="soilStatus" class="soil-status">--</div>
+        </div>
+      </div>
+
+      <div class="recommend-card" id="recommend">
+        <div class="rec-left">
+          <div id="cropName" class="rec-title">--</div>
+          <div id="cropDetails" class="rec-desc">Waiting for data...</div>
+        </div>
+        <div class="rec-right">
+          <div><strong>✅ Do's</strong></div>
+          <ul id="dos"></ul>
+          <div><strong>❌ Don'ts</strong></div>
+          <ul id="donts"></ul>
+        </div>
+      </div>
+
+      <section class="chart-section">
+        <h3>📈 Recent sensor trends</h3>
+        <canvas id="sensorChart" width="400" height="200"></canvas>
+        <div style="margin-top:12px;">
+          <button id="downloadHistoryBtn" class="btn">⬇️ Download CSV</button>
+        </div>
+      </section>
+    </section>
+
+    <!-- Crops & About sections kept as before -->
+    <section id="crops" class="page">
+      <h2>Crop Library</h2>
+      <div class="crop-list">
+        <article class="crop"><h3>Rice 🌾</h3><p>Rice grows best in water-retentive soils.</p></article>
+        <article class="crop"><h3>Wheat 🌱</h3><p>Wheat prefers loamy soils & cooler seasons.</p></article>
+        <article class="crop"><h3>Maize 🌽</h3><p>Requires sunlight & good moisture during flowering.</p></article>
+        <article class="crop"><h3>Potato 🥔</h3><p>Requires loose soil and cooler weather.</p></article>
+      </div>
+    </section>
+
+     <section id="about" class="page">
+      <h2>About Smart Farming</h2>
+      <p>
+        The <strong>Smart Farming Dashboard</strong> empowers farmers with 
+        <em>real-time sensor monitoring</em>, <em>AI-driven crop recommendations</em>, 
+        and <em>data-based price predictions</em> to make better agricultural decisions.
+      </p>
+
+      <div class="about-grid">
+        <div class="about-card"><div class="icon">🌱</div><h3>Crop Recommendation</h3><p>Suggests best crops using soil & climate data.</p></div>
+        <div class="about-card"><div class="icon">💹</div><h3>Price Prediction</h3><p>ML models predict future crop prices to assist selling decisions.</p></div>
+        <div class="about-card"><div class="icon">📊</div><h3>Data Insights</h3><p>Interactive charts visualize sensor and price trends.</p></div>
+        <div class="about-card"><div class="icon">🤝</div><h3>Farmer Empowerment</h3><p>Combines IoT + AI to reduce risk and increase profits.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>🌾 Smart Farming Project — AI & IoT for Agriculture.</p>
+    <p>© 2025 Smart Farming Team</p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
