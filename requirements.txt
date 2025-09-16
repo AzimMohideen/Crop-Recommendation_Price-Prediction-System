@@ -4,8 +4,6 @@ numpy
 joblib
 SQLAlchemy
 psycopg2-binary
-smtplib
-email
 twilio
 matplotlib
 seaborn
