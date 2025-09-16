@@ -10,3 +10,4 @@ twilio
 matplotlib
 seaborn
 scipy
+Flask-SQLAlchemy
